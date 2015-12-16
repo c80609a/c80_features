@@ -1,5 +1,9 @@
 # C80Features
 
+[![Gem Version](https://badge.fury.io/rb/c80_features.svg)](http://badge.fury.io/rb/c80_features)
+[![Build Status](https://travis-ci.org/c080609a/c80_features.svg?branch=master)](https://travis-ci.org/c080609a/c80_feedback_form)
+
+
 Adds model Features::Para (paragraph) to site,
 which are usually enumerated as text blocks one by one in a single row
 (e.g.: testimonials, features, trust symbols etc.). 
