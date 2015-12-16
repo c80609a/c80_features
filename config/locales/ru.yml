@@ -1,0 +1,12 @@
+ru:
+  activerecord:
+    models:
+      para:
+        one: "текстовый блок"
+        other: "Преимущества"
+    attributes:
+      para:
+        id: "№"
+        title: "Заголовок"
+        image: "Картинка"
+        content: "Содержимое"

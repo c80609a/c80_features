@@ -1,0 +1,6 @@
+<% para_all.each do |paragraph| %>
+    <div style="background: transparent url(<%= image_path(paragraph.image.thumb_fill.url) %>) no-repeat 50% 0;">
+      <h3><%= paragraph.title %></h3>
+      <div><%= paragraph.content.html_safe %></div>
+    </div>
+<% end %>

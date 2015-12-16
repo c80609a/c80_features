@@ -1,0 +1,9 @@
+<% para_all.each_with_index do |paragraph,index| %>
+    <div id="<%= "feature_#{index}"%>">
+      <div class="ind"><%= index %></div>
+      <% if paragraph.title.present? %>
+          <h3><%= paragraph.title %></h3>
+      <% end %>
+      <div class="cnt"><%= paragraph.content.html_safe %></div>
+    </div>
+<% end %>
