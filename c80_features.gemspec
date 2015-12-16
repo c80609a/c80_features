@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Adds model Features::Para (paragraph) to site,
 which are usually enumerated as text blocks one by one in a single row
 (e.g.: testimonials, features, trust symbols etc.). '
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/c80609a/c80_features"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

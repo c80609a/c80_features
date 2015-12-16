@@ -1,7 +1,7 @@
 # C80Features
 
 [![Gem Version](https://badge.fury.io/rb/c80_features.svg)](http://badge.fury.io/rb/c80_features)
-[![Build Status](https://travis-ci.org/c080609a/c80_features.svg?branch=master)](https://travis-ci.org/c080609a/c80_feedback_form)
+[![Build Status](https://travis-ci.org/c80609a/c80_features.svg)](https://travis-ci.org/c80609a/c80_features.svg)
 
 
 Adds model Features::Para (paragraph) to site,
