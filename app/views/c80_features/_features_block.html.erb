@@ -1,6 +1,6 @@
 <% para_all.each_with_index do |paragraph,index| %>
-    <div id="<%= "feature_#{index}"%>">
-      <div class="ind"><%= index %></div>
+    <div id="<%= "feature_#{index+1}"%>">
+      <div class="ind"><%= index+1 %></div>
       <% if paragraph.title.present? %>
           <h3><%= paragraph.title %></h3>
       <% end %>
