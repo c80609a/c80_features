@@ -13,7 +13,7 @@ ActiveAdmin.register C80Features::Para, :as => 'Para' do
   index do
     selectable_column
     column :image do |ab|
-      image_tag("#{ab.image.thumb_fill.url}")
+      image_tag("#{ab.image.thumb_preview.url}")
     end
     column :title
     column :content do |about|

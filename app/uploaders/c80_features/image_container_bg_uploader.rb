@@ -1,9 +1,8 @@
-# загрузка иконок в блоки "о нас"
-
+# загрузка картинки для фона блока, в котором содержится контент виджета "преимущества"
 module C80Features
 
   # грузит картинку слайдера
-  class ParaUploader < CarrierWave::Uploader::Base
+  class ImageContainerBgUploader < CarrierWave::Uploader::Base
 
     include CarrierWave::MiniMagick
 
@@ -11,12 +10,16 @@ module C80Features
 
     process :resize_to_limit_my
 
+    version :thumb_big do
+      process :resize_to_big_by_width
+    end
+
     version :thumb_preview do
       process :resize_to_preview
     end
 
     def store_dir
-      'uploads/features'
+      'uploads/features/bg'
     end
 
     def filename
@@ -30,8 +33,8 @@ module C80Features
       manipulate! do |img|
 
         # извлекаем ширину и подгоняем высоту
-        w = C80Features::Prop.first.para_image_limit_width
-        h = C80Features::Prop.first.para_image_limit_height
+        w = C80Features::Prop.first.bg_image_limit_width
+        h = C80Features::Prop.first.bg_image_limit_height
 
         # меняем размер
         img.resize "#{w}x#{h}<"
@@ -41,12 +44,30 @@ module C80Features
       end
     end
 
+    # меням размер оригинальной картинки, подгоняя её к требуемой ширине (высота рассчитается автоматом)
+    def resize_to_big_by_width
+
+      manipulate! do |img|
+
+        # извлекаем ширину и подгоняем высоту
+        w = C80Features::Prop.first.bg_big_width
+        h = calc_height_of_image(w)
+
+        # меняем размер
+        img.resize "#{w}x#{h}<"
+        img = yield(img) if block_given?
+        img
+
+      end
+
+    end
+
     # пока используется только для показа картинки в админке
     def resize_to_preview
       manipulate! do |img|
 
-        w = C80Features::Prop.first.para_preview_width
-        h = C80Features::Prop.first.para_preview_height
+        w = C80Features::Prop.first.bg_preview_width
+        h = C80Features::Prop.first.bg_preview_height
 
         img.resize "#{w}x#{h}>"
         img = yield(img) if block_given?
@@ -76,6 +97,6 @@ module C80Features
       original_h * k
     end
 
-  end
-
+  end  
+  
 end
